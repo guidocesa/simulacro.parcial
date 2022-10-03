@@ -8,7 +8,12 @@ import { MatGridListModule } from '@angular/material/grid-list';
 })
 export class PeliculaListadoComponent implements OnInit {
 
-  constructor() { }
+  listadoPeliculas: [];
+
+  constructor() {
+    this.listadoPeliculas = [];//llamado a la bd
+   }
+
 
   ngOnInit(): void {
   }
