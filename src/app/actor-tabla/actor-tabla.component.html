@@ -1,4 +1,4 @@
-<p>paises-tabla works!</p>
+
 <main role="main">
     <div class="jumbotron">
       <div class="container-md">
@@ -9,14 +9,14 @@
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
-                <th scope="col">Bandera</th>
+                <th scope="col">Foto</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let pais of listaPaises">
-                <td>{{ pais.name.common }}</td>
-                <td><img [src]="pais.flags.png" class="" style="width: 200px; height: 100px;"></td>
-                <td><button type="button" class="btn btn-sm btn-outline-secondary" (click)="emitirPais(pais)">Agregar</button></td>
+              <tr *ngFor="let actor of listadoActores">
+                <td>{{ actor.nombre + ' ' + actor.apellido }}</td>
+                <td><img [src]="actor.foto" class="" style="width: 200px; height: 100px;"></td>
+                <td><button type="button" class="btn btn-sm btn-outline-secondary" (click)="emitirActor(actor)">Agregar</button></td>
             </tbody>
           </table>
         </div>

@@ -41,7 +41,7 @@
             *ngIf="forma.controls.edad.errors?.min || 
             forma.controls.edad.errors?.max &&
             forma.controls.edad.touched">
-            La edad debe ser de 18 a 99 años
+            La edad debe ser de 0 a 99 años
           </small>
         </div>
         <div class="col-md-6 mb-3">
@@ -57,6 +57,14 @@
             El sexo es requerido
           </small>
         </div>
+        <div class="col-md-6 mb-3">
+          <label for="dni" class="form-label">Pais</label>
+          <input type="text"  class="form-control" [(ngModel)]="pais.name.common" id="pais" placeholder="Seleccione Pais" formControlName="edad" readonly>
+          <small class="invalid"
+            *ngIf="forma.controls.edad.errors?.required">
+            El pais es requerido
+          </small>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-12 d-grid gap-2">
@@ -68,4 +76,5 @@
         </div>
       </div>
     </form>
+    <app-paises-tabla (paisEmitido)="paisSeleccionado($event)"></app-paises-tabla>
 </div>

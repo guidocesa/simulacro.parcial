@@ -13,9 +13,11 @@ const routes: Routes = [
   {path: 'bienvenido', component: BienvenidoComponent},
   {path: 'busqueda', component: BusquedaComponent, children:[
     {path: 'peliculas', children:[
-      {path: 'alta', component: PeliculaAltaComponent},
       {path: 'listado', component: PeliculaListadoComponent}
     ]}
+  ]},
+  {path: 'peliculas', children: [
+    {path: 'alta', component: PeliculaAltaComponent}
   ]},
   {path: 'actor', children:[
     {path: 'alta', component: ActorAltaComponent},
