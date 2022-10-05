@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActoresService } from '../services/actores.service';
 import { Actor } from '../services/actor';
+import { MatGridTileHeaderCssMatStyler } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-actor-alta',
@@ -11,6 +12,12 @@ import { Actor } from '../services/actor';
 export class ActorAltaComponent implements OnInit {
 
   public forma: FormGroup;
+  pais:any = {
+    name: {
+      common: ""
+    },
+    foto: ""
+  };
 
   constructor(private fb: FormBuilder, private actorServ:ActoresService) { 
 
@@ -37,9 +44,16 @@ export class ActorAltaComponent implements OnInit {
   }
 
   public aceptar(): void {
-    console.log(this.forma.getRawValue());
     var actor: Actor = this.forma.getRawValue();
+    actor.pais = this.pais.name.common;
+    actor.foto = this.pais.flags.png;
     this.actorServ.agregarActor(actor);
+  }
+
+  paisSeleccionado(pais:any)
+  {
+    console.log(pais.name.common);
+    this.pais = pais;
   }
 
 }

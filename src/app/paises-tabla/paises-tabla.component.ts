@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { PaisesService } from '../services/paises.service';
 
 @Component({
   selector: 'app-paises-tabla',
@@ -7,12 +8,17 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class PaisesTablaComponent implements OnInit {
 
-  @Input() listaPaises: any;
+  listaPaises: any;
   @Output() paisEmitido: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private apiPaises:PaisesService) {
 
+  }
+  
   ngOnInit(): void {
+    this.apiPaises.obtenerListadoParametro('https://restcountries.com/v3.1/name/peru').subscribe((data:any) => {
+      this.listaPaises= data;      
+    });
   }
 
   emitirPais(pais:any) {

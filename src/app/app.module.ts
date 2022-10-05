@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { PeliculaDetalleComponent } from './pelicula-detalle/pelicula-detalle.co
 import { NavbarComponent } from './navbar/navbar.component';
 import { PaisesTablaComponent } from './paises-tabla/paises-tabla.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActorTablaComponent } from './actor-tabla/actor-tabla.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PeliculaTablaComponent,
     PeliculaDetalleComponent,
     NavbarComponent,
-    PaisesTablaComponent
+    PaisesTablaComponent,
+    ActorTablaComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ PeliServiceService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase} ],
   bootstrap: [AppComponent]

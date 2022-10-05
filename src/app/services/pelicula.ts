@@ -5,4 +5,5 @@ export interface Pelicula{
     fechaEstreno:Date | string;
     cantidadPublico:number;
     fotoDePelicula:string;
+    actor:string;
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Actor } from '../services/actor';
+
 
 @Component({
   selector: 'app-actor-listado',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActorListadoComponent implements OnInit {
 
+  @Output() actorEmitido: EventEmitter<Actor> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  emitirActor(actor:Actor)
+  {
+    this.actorEmitido.emit(actor);
   }
 
 }
