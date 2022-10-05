@@ -1,11 +1,1 @@
-<div class="containerGeneral">
-    <h2>Listado de Peliculas</h2>
-    <mat-grid-list cols="4" [style.background]="'skyblue'">
-        <mat-grid-tile>Tile 1 </mat-grid-tile>
-        <mat-grid-tile>Tile 2 </mat-grid-tile>
-        <mat-grid-tile>Tile 3 </mat-grid-tile>
-        <mat-grid-tile>Tile 4 </mat-grid-tile>
-    </mat-grid-list>
-
-
-</div>
+<app-pelicula-tabla [peliculas]="inputPeliculas" (peliClickeadaEvent)="peliClickeada($event)"></app-pelicula-tabla>

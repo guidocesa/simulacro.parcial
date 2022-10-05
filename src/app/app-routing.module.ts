@@ -15,13 +15,12 @@ const routes: Routes = [
     {path: 'peliculas', children:[
       {path: 'alta', component: PeliculaAltaComponent},
       {path: 'listado', component: PeliculaListadoComponent}
-    ]},
-    {path: 'actor', children:[
-      {path: 'alta', component: ActorAltaComponent},
-      {path: 'listado', component: ActorListadoComponent}
-    ]},
+    ]}
   ]},
-  {path: 'bienvenido', component: BienvenidoComponent},
+  {path: 'actor', children:[
+    {path: 'alta', component: ActorAltaComponent},
+    {path: 'listado', component: ActorListadoComponent}
+  ]},
   {path: 'bienvenido', component: BienvenidoComponent},
   {path: '', redirectTo: 'busqueda', pathMatch: 'full'}
 

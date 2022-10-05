@@ -1,0 +1,18 @@
+<div class="containerGeneral">
+    <h2>Listado de Peliculas</h2>
+    <div *ngIf="isLoaded">
+
+        <mat-grid-list cols="2" rowHeight="200px" >
+            <mat-grid-tile *ngFor="let pelicula of pelis">
+                Nombre: {{pelicula.nombre}}<br>
+                Publico al Estrenarse: {{pelicula.cantidadPublico}}<br>
+                Tipo: {{pelicula.tipo}}<br>
+                Fecha de Estreno: {{pelicula.fechaEstreno}}<br>
+                Foto: {{pelicula.fotoDePelicula}}<br>
+                <button (click)="peliClickeada(pelicula.id)">Mostrar Detalles</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+
+</div>

@@ -13,7 +13,7 @@ export class PeliServiceService {
 
   constructor(private afs:AngularFirestore) {
     this.pelisCollection = afs.collection<Pelicula>('peliculas');
-    this.peliculas = this.pelisCollection.valueChanges();
+    this.peliculas = this.pelisCollection.valueChanges({idField: 'id'});
    }
 
   getPelis()
@@ -22,6 +22,6 @@ export class PeliServiceService {
   }
 
   agregarPeli(peli:Pelicula){
-    this.pelisCollection.add(peli);0
+    this.pelisCollection.add(peli);
   }
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable, timeout } from 'rxjs';
+import { Pelicula } from '../services/pelicula';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pelicula-listado',
@@ -8,14 +10,23 @@ import { MatGridListModule } from '@angular/material/grid-list';
 })
 export class PeliculaListadoComponent implements OnInit {
 
-  listadoPeliculas: [];
+  @Input() inputPeliculas: Observable<Pelicula[]> | undefined;
+  @Output() peliClickeadaEvent = new EventEmitter<Pelicula>();
+
 
   constructor() {
-    this.listadoPeliculas = [];//llamado a la bd
-   }
+    
+
+  }
 
 
   ngOnInit(): void {
+    console.log(this.inputPeliculas);
+  }
+
+  peliClickeada(peli:Pelicula)
+  {
+    this.peliClickeadaEvent.emit(peli);
   }
 
 }

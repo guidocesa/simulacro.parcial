@@ -16,6 +16,13 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PeliculaTablaComponent } from './pelicula-tabla/pelicula-tabla.component';
+import { PeliServiceService } from './services/peli-service.service';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { PeliculaDetalleComponent } from './pelicula-detalle/pelicula-detalle.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PaisesTablaComponent } from './paises-tabla/paises-tabla.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ActorAltaComponent,
     ActorListadoComponent,
     PeliculaListadoComponent,
-    BusquedaComponent
+    BusquedaComponent,
+    PeliculaTablaComponent,
+    PeliculaDetalleComponent,
+    NavbarComponent,
+    PaisesTablaComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +45,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ PeliServiceService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
